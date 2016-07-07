@@ -1,0 +1,91 @@
+body {
+    background: #ffffff;
+    /* background: #2E94B9; */
+    color: ##201225;
+}
+
+h1,
+h2 {
+    font-weight: 700;
+    color: #5E3B4D;
+}
+
+#view {
+    color: #AA96B7;
+    border-radius: 7px;
+    border: 2px solid ##201225;
+    margin: 0 auto;
+}
+
+#currentSession {
+    font-size: 18.505em;
+    font-weight: 100;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#speak {
+    text-align: center;
+    padding: 1em;
+    font-size: 1.805em;
+    font-weight: 100;
+}
+
+.notice {
+    border: 2px solid #ffffff;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.status {
+    padding: 0;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.status > h2 {
+    font-size: 2.4em;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #EFE4E4;
+    text-align: center;
+}
+
+#progressbar {
+    padding: 20px;
+}
+
+
+/* TODO:  Make progress bar dynamic */
+
+progress[value] {
+    width: 100%;
+    height: 40px;
+    background: #046FDB;
+    /* padding: 1%; */
+}
+
+
+/* progress::-moz-progress-bar { background: #0063a6; } */
+
+progress::-webkit-progress-bar {
+    background: #046FDB;
+}
+
+progress::-webkit-progress-value {
+    background: #AA96B7;
+}
+
+
+#eventForm {
+    background: #EFE4E4;
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.footer {
+    min-height: 2.4em;
+    font-size: 1.45em;
+    font-weight: 200;
+}
