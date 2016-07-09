@@ -18,13 +18,24 @@ h2 {
 }
 
 #currentSession {
-    font-size: 18.505em;
+    font-size: 4.505em;
+    /* font-size: 18.505em; */
     font-weight: 100;
     text-align: center;
     margin: 0 auto;
+    background: #f8f8f9;
+    min-height: 4em;
+    border-radius: 7px;
 }
 
-#speak {
+#blinkDateTime {
+    text-align: center;
+    padding: 1em;
+    font-size: 1.805em;
+    font-weight: 100;
+}
+
+#eventTime {
     text-align: center;
     padding: 1em;
     font-size: 1.805em;
@@ -76,12 +87,12 @@ progress::-webkit-progress-value {
     background: #AA96B7;
 }
 
-
 #eventForm {
-    background: #EFE4E4;
+    background: #2E94B9;
     padding: 10px 10px;
     border-radius: 5px;
     text-align: left;
+    color: #ffffff;
 }
 
 .footer {
