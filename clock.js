@@ -24,7 +24,7 @@ var createClock = function() {
     }
 
     if (currentMinutes > 14 && currentMinutes < 30) {
-        document.body.style.backgroundColor = "#ff0";
+        document.body.style.backgroundColor = "#FFCD38";
         document.getElementById('clock').style.color = "#000222";
 
     }
