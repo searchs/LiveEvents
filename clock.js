@@ -31,7 +31,7 @@ var createClock = function() {
     if (currentMinutes > 29 && currentMinutes < 45) {
         document.body.style.backgroundColor = "#111000";
         document.body.style.color = "#fff";
-        document.getElementById('clock').style.color = "#0C81F6";
+        document.getElementById('clock').style.color = "#E4FFFE";
     }
 
 
@@ -52,13 +52,5 @@ function formatDisplay(value) {
     return value;
 
 }
-
-function changeBackground() {
-
-    // if (date.getMinutes() > 25) {
-    //     document.getElementById('clock').style.backgroundColor = "#ff0";
-    // }
-}
-
 
 window.onload = onReady;
