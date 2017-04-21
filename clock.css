@@ -1,58 +1,117 @@
-function onReady() {
-    var clk = new createClock();
+/* Bulma CSS Framework used */
+
+body {
+    font-size: 14px;
+    color: #2A363B;
+    background: transparent;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
 }
 
-var currentHours;
-var currentMinutes;
-var currentSeconds;
-var createClock = function() {
-    var date = new Date();
-    currentHours = formatDisplay(date.getHours());
-    currentMinutes = formatDisplay(date.getMinutes())
-    currentSeconds = formatDisplay(date.getSeconds());
-    var currentTime = currentHours + ":" + currentMinutes + ":" + currentSeconds;
-
-    var timer = document.getElementById("clock");
-    timer.innerHTML = currentTime;
-    var t = setTimeout(createClock, 1000);
-
-    if (currentMinutes > 0 && currentMinutes < 15) {
-        document.body.style.backgroundColor = "#fff";
-        document.body.style.color = "#111000";
-        document.getElementById('clock').style.color = "#BE3144";
-
-    }
-
-    if (currentMinutes > 14 && currentMinutes < 30) {
-        document.body.style.backgroundColor = "#FFCD38";
-        document.getElementById('clock').style.color = "#000222";
-
-    }
-    if (currentMinutes > 29 && currentMinutes < 45) {
-        document.body.style.backgroundColor = "#111000";
-        document.body.style.color = "#fff";
-        document.getElementById('clock').style.color = "#E4FFFE";
-    }
-
-
-    if (date.getMinutes() > 44 && date.getMinutes() < 59) {
-        document.body.style.backgroundColor = "#3e3d3d";
-        document.body.style.color = "#fff";
-        document.getElementById('clock').style.color = "#ffffff";
-
-
-    }
-
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
-function formatDisplay(value) {
-    if (value < 10) {
-        value = "0" + value;
-    }
-    return value;
-
+#root {
+    min-height: 75%;
+    margin: 0;
 }
 
+.headbox {
+    text-align: center;
+    padding: 2rem;
+}
 
+.headbox h1 {
+    font-weight: 300;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    /*background: white;*/
+    /*border-radius: 17px;*/
+}
 
-window.onload = onReady;
+#clock {
+    background: transparent;
+    text-align: center;
+    font-size: 240px;
+    font-weight: 200;
+    /*padding: 2rem;*/
+    color: #646494;
+    height: auto;
+    /*min-height: 100%;
+    min-width: 100%;*/
+    margin: 0;
+}
+
+.upcoming {
+    background: #0E7CF4;
+    color: white;
+    /*min-height: 10%;*/
+    /*padding: 2em 3em;*/
+    /*position: absolute;*/
+    min-width: 100%;
+    min-height: 10%;
+    /*margin-bottom: 0;*/
+    /*margin-top: 0;*/
+}
+
+.upcoming h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2em;
+}
+
+#next {
+    border-right: 1px solid #A4F6F9;
+    font-size: 1.75em;
+}
+
+#next-event {
+    vertical-align: middle;
+    margin: 0 auto;
+    font-weight: 900;
+    font-size: 1.5em;
+    padding: 1em;
+}
+
+#next-anchor {
+    border-left: 4px dashed #fff;
+    font-size: 1.25em;
+    font-weight: 100;
+    padding: 1.2em;
+}
+
+.blink_me {
+    animation: blinker 7s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+#footer_band {
+    margin: 0;
+    color: #E4FFFE;
+    font-weight: 100;
+    clear: both;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    background: #141010;
+    min-height: 5%;
+    min-width: 100%;
+    /*padding: 3rem 1.5rem 6rem;*/
+}
+
+@media only screen and (max-width: 768px) and (max-height: 1024px) {
+    /* Styles here */
+    font-size: 0.75em;
+}
