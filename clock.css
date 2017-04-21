@@ -1,90 +1,58 @@
-/* Bulma CSS Framework used */
-
-body {
-    margin: 0 auto;
-    /*padding: 20px;*/
-    font-size: 16px;
-    color: #2A363B;
-    min-height: 100%;
+function onReady() {
+    var clk = new createClock();
 }
 
-#root {
-    min-height: 20rem;
-}
+var currentHours;
+var currentMinutes;
+var currentSeconds;
+var createClock = function() {
+    var date = new Date();
+    currentHours = formatDisplay(date.getHours());
+    currentMinutes = formatDisplay(date.getMinutes())
+    currentSeconds = formatDisplay(date.getSeconds());
+    var currentTime = currentHours + ":" + currentMinutes + ":" + currentSeconds;
 
-.headbox {
-    text-align: center;
-    padding: 2rem;
-}
+    var timer = document.getElementById("clock");
+    timer.innerHTML = currentTime;
+    var t = setTimeout(createClock, 1000);
 
-.headbox h1 {
-    font-weight: 100;
-    font-size: 2.5rem;
-    text-transform: uppercase;
-}
+    if (currentMinutes > 0 && currentMinutes < 15) {
+        document.body.style.backgroundColor = "#fff";
+        document.body.style.color = "#111000";
+        document.getElementById('clock').style.color = "#BE3144";
 
-#clock {
-    background: transparent;
-    text-align: center;
-    font-size: 12.5rem;
-    font-weight: 200;
-    padding: 2rem;
-    color: #0E7CF4;
-    min-height: 100%;
-    min-width: 100%;
-}
-
-.upcoming {
-    background: red;
-    color: white;
-    min-height: 10%;
-    /*padding: 2em 3em;*/
-    clear: both;
-    bottom: 0;
-}
-
-.upcoming h2 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2em;
-}
-
-.next {
-    border-right: 2px solid #fff;
-    font-size: 2.0em;
-}
-
-.next-event {
-    vertical-align: middle;
-    margin: 0 auto;
-    font-weight: 900;
-    font-size: 1.175em;
-}
-
-.next-anchor {
-    font-size: 1.35em;
-    font-weight: 200;
-}
-
-.blink_me {
-    animation: blinker 7s linear infinite;
-}
-
-@keyframes blinker {
-    50% {
-        opacity: 0;
     }
+
+    if (currentMinutes > 14 && currentMinutes < 30) {
+        document.body.style.backgroundColor = "#FFCD38";
+        document.getElementById('clock').style.color = "#000222";
+
+    }
+    if (currentMinutes > 29 && currentMinutes < 45) {
+        document.body.style.backgroundColor = "#111000";
+        document.body.style.color = "#fff";
+        document.getElementById('clock').style.color = "#E4FFFE";
+    }
+
+
+    if (date.getMinutes() > 44 && date.getMinutes() < 59) {
+        document.body.style.backgroundColor = "#3e3d3d";
+        document.body.style.color = "#fff";
+        document.getElementById('clock').style.color = "#ffffff";
+
+
+    }
+
 }
 
-.footer {
-    margin: 0 auto;
-    color: #455a64;
-    font-weight: 100;
-    clear: both;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    background: #263238;
-    /*padding: 3rem 1.5rem 6rem;*/
+function formatDisplay(value) {
+    if (value < 10) {
+        value = "0" + value;
+    }
+    return value;
+
 }
+
+
+
+window.onload = onReady;
