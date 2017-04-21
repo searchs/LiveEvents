@@ -12,9 +12,6 @@ var createClock = function() {
     currentSeconds = formatDisplay(date.getSeconds());
     var currentTime = currentHours + ":" + currentMinutes + ":" + currentSeconds;
 
-    // currrent = formatDisplay(date.getHours() +
-    //     ":" + formatDisplay(date.getMinutes()) +
-    //     ":" + formatDisplay(date.getSeconds()));
     var timer = document.getElementById("clock");
     timer.innerHTML = currentTime;
     var t = setTimeout(createClock, 1000);
@@ -26,19 +23,20 @@ var createClock = function() {
 
     }
 
-    if (currentMinutes > 25 && currentMinutes < 30) {
-        document.getElementById('clock').style.backgroundColor = "#ff0";
+    if (currentMinutes > 14 && currentMinutes < 30) {
+        document.body.style.backgroundColor = "#ff0";
         document.getElementById('clock').style.color = "#000222";
 
     }
-    if (date.getMinutes() > 30 && date.getMinutes() < 40) {
-        document.getElementById('clock').style.backgroundColor = "#111000";
-        document.getElementById('clock').style.color = "#ffffff";
+    if (currentMinutes > 29 && currentMinutes < 45) {
+        document.body.style.backgroundColor = "#111000";
+        document.body.style.color = "#fff";
+        document.getElementById('clock').style.color = "#0C81F6";
     }
 
 
-    if (date.getMinutes() > 39) {
-        document.body.style.backgroundColor = "#0C81F6";
+    if (date.getMinutes() > 44 && date.getMinutes() < 59) {
+        document.body.style.backgroundColor = "#3e3d3d";
         document.body.style.color = "#fff";
         document.getElementById('clock').style.color = "#ffffff";
 
