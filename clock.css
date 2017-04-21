@@ -1,4 +1,5 @@
 /* Bulma CSS Framework used */
+
 body {
     margin: 0 auto;
     /*padding: 20px;*/
@@ -27,16 +28,18 @@ body {
     text-align: center;
     font-size: 12.5rem;
     font-weight: 200;
-    margin: 2rem;
+    padding: 2rem;
     color: #0E7CF4;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 .upcoming {
     background: red;
     color: white;
-    min-height: 3em;
-    padding: 1em;
-    margin-bottom: -10px;
+    min-height: 10%;
+    /*padding: 2em 3em;*/
+    clear: both;
     bottom: 0;
 }
 
@@ -48,18 +51,23 @@ body {
 
 .next {
     border-right: 2px solid #fff;
-    font-size: 2.3em;
+    font-size: 2.0em;
 }
 
 .next-event {
+    vertical-align: middle;
+    margin: 0 auto;
     font-weight: 900;
-    font-size: 1.5em;
+    font-size: 1.175em;
 }
 
-.next-anchor {}
+.next-anchor {
+    font-size: 1.35em;
+    font-weight: 200;
+}
 
 .blink_me {
-    animation: blinker 3s linear infinite;
+    animation: blinker 7s linear infinite;
 }
 
 @keyframes blinker {
