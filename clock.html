@@ -15,7 +15,7 @@
     <div class="columns" id="root">
         <div class="container">
             <div class="column is-narrow headbox center">
-                <h1>Event Streams Reactive</h1>
+                <h1>Live Event</h1>
             </div>
 
             <div id="clock" class="column is-narrow">
@@ -24,28 +24,23 @@
                 </script>
             </div>
         </div>
-        <!-- All of the Node.js APIs are available in this renderer process. -->
 
     </div>
-    <!--<div class="columns">-->
     <div class="columns upcoming">
-        <div class="column is-one-third next">
+        <div class="column is-2 " id="next">
             <h2>NEXT</h2>
         </div>
-        <div class="column is-one-third next-event blink_me">
+        <div class="column is-7 blink_me" id="next-event">
             <h2>Functions in Python</h2>
         </div>
-        <div class="column is-one-third next-anchor">
+        <div class="column is-3 " id="next-anchor">
             <h2>Ola</h2>
         </div>
     </div>
     <!--</div>-->
 
-    <div class="columns footer">
-        <!--<hr />-->
-        <!--<div class="columns">-->
-        <!--<hr />-->
-        <div class="column">
+    <div class="columns" id="footer_band">
+        <div class=" column ">
             <script>
                 document.write(process.versions.node)
             </script>, Chromium
@@ -56,10 +51,9 @@
                 document.write(process.versions.electron)
             </script>.
         </div>
-        <div class="column">
+        <div class="column ">
             <p>EventStreams monitors your deals from Elasticsearch </p>
         </div>
-        <!--</div>-->
     </div>
 
 </body>
