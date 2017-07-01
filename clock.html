@@ -12,49 +12,150 @@
 </head>
 
 <body>
-    <div class="columns" id="root">
+    <section class="section">
+        <div class="container is-fluid">
+            <div class="columns" id="root">
+                <hr />
+                <div class="columns">
+                    <div class="column is-half">
+                        <div class="headbox">
+                            <h1>Upcoming Events</h1>
+                            <div id="display-upcoming"></div>
+                        </div>
+                    </div>
+                    <div id="clock" class="column is-half">
+                        <script>
+                            //    document.write(createClock());
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="columns" id="upcoming">
+            <div class="column is-2" id="next-holder">
+                <h2>Next Event </h2>
+            </div>
+            <div class="column is-7 blink_me" id="next-event">
+            </div>
+            <div class="column is-3 " id="next-anchor">
+
+            </div>
+        </div>
+
+    </section>
+
+    <!--hr /-->
+    <section class="section">
+        <div class="columns">
+            <div class="column is-one-third">
+                <div class="field">
+                    <p class="control">
+                        <span class="select is-large">
+      <select id="event-title">
+        <option>Select Event</option>
+        <option>Announcements</option>
+        <option>Jams</option>
+        <option>Newbies</option>
+        <option>Freshies</option>
+      </select>
+    </span>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="column is-one-third">
+                <div class="field">
+                    <p class="control">
+                        <span class="select is-large">
+      <select id="event-duration">
+        <option>Select Duration in Minutes</option>
+        <option>5 minutes</option>
+        <option>10 Minutes</option>
+        <option>15 Minutes</option>
+        <option>20 Minutes</option>
+        <option>25 Minutes</option>
+        <option>30 Minutes</option>
+        <option>35 Minutes</option>
+        <option>45 Minutes</option>
+        <option>60 Minutes</option>
+      </select>
+    </span>
+                    </p>
+                </div>
+                <!-- div class="field">
+                    <p class="control">
+                        <input class="input is-large" id="event-title" type="text" placeholder="Enter Event title">
+                    </p>
+                </div -->
+            </div>
+
+            <div class="column">
+                <div class="field">
+                    <p class="control">
+                        <span class="select is-large">
+      <select id="event-anchor">
+        <option>Select Anchor</option>
+        <option>PJ</option>
+        <option>Mama Joy</option>
+        <option>Lifted</option>
+        <option>Deacon Wale</option>
+      </select>
+    </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="field is-grouped">
+            <button class="button is-large" onclick="createNewEvent()">Add Event </button>
+
+        </div>
+    </section>
+    <hr />
+    <section class="section">
+        <div class="container" id="session-messages">
+            <h3>Message for current speaker</h3>
+            <div id="notice-message" class=" column is-large">
+            </div>
+            <div class="add-notice">
+                <div class="field">
+                    <label class="label"><h2>Add Message</h2></label>
+                    <p class="control">
+                        <input id="notice" class="input" type="text" placeholder="Message for all stakeholders " />
+                    </p>
+                </div>
+                <div class="field is-grouped">
+                    <button class="button is-large" onclick="addNotice()">Add Notice </button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Footer Section -->
+    <footer class="footer" id="footer_band">
+
         <div class="container">
-            <div class="column is-narrow headbox center">
-                <h1>Live Event</h1>
+            <div class="columns">
+                <!--div class="columns" id="footer_band"-->
+                <div class="column is-two-thirds">
+                    <script>
+                        document.write(process.versions.node)
+                    </script>, Chromium
+                    <script>
+                        document.write(process.versions.chrome)
+                    </script>, and Electron
+                    <script>
+                        document.write(process.versions.electron)
+                    </script>.
+                </div>
+                <div class="column is-one-third">
+                    <p>EventStreams Monitors Live Events </p>
+                </div>
             </div>
-
-            <div id="clock" class="column is-narrow">
-                <script>
-                    document.write(createClock())
-                </script>
-            </div>
         </div>
-
-    </div>
-    <div class="columns upcoming">
-        <div class="column is-2 " id="next">
-            <h2>NEXT</h2>
-        </div>
-        <div class="column is-7 blink_me" id="next-event">
-            <h2>Functions in Python</h2>
-        </div>
-        <div class="column is-3 " id="next-anchor">
-            <h2>Ola</h2>
-        </div>
-    </div>
-    <!--</div>-->
-
-    <div class="columns" id="footer_band">
-        <div class=" column ">
-            <script>
-                document.write(process.versions.node)
-            </script>, Chromium
-            <script>
-                document.write(process.versions.chrome)
-            </script>, and Electron
-            <script>
-                document.write(process.versions.electron)
-            </script>.
-        </div>
-        <div class="column ">
-            <p>EventStreams monitors your deals from Elasticsearch </p>
-        </div>
-    </div>
+    </footer>
 
 </body>
 
