@@ -2,8 +2,9 @@
 
 body {
     font-size: 14px;
-    color: #2A363B;
-    background: transparent;
+    /*color: #2A363B;*/
+    color: #5454cc;
+    background: #f8f8f8;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -18,8 +19,10 @@ body {
 }
 
 #root {
-    min-height: 75%;
+    /*min-height: 50%;*/
+    background: transparent;
     margin: 0;
+    padding: 30px;
 }
 
 .headbox {
@@ -31,56 +34,71 @@ body {
     font-weight: 300;
     font-size: 2.5em;
     text-transform: uppercase;
-    /*background: white;*/
-    /*border-radius: 17px;*/
+    color: darkmagenta;
+}
+
+#countdown {
+    font-size: 2em;
 }
 
 #clock {
-    background: transparent;
     text-align: center;
-    font-size: 240px;
+    /*font-size: 240px;*/
+    font-size: 15.5em;
     font-weight: 200;
-    /*padding: 2rem;*/
+    padding: 2rem;
     color: #646494;
-    height: auto;
-    /*min-height: 100%;
-    min-width: 100%;*/
     margin: 0;
 }
 
-.upcoming {
+#upcoming {
     background: #0E7CF4;
     color: white;
-    /*min-height: 10%;*/
-    /*padding: 2em 3em;*/
-    /*position: absolute;*/
     min-width: 100%;
     min-height: 10%;
-    /*margin-bottom: 0;*/
-    /*margin-top: 0;*/
+    font-size: 1em;
+    padding: 2em;
 }
 
-.upcoming h2 {
+#upcoming h2 {
+    font-family: "Helvetica Neue", "Segoe UI", "Roboto", "Oxygen", Helvetica, Arial, sans-serif;
     text-align: center;
     text-transform: uppercase;
     font-size: 2em;
 }
 
-#next {
-    border-right: 1px solid #A4F6F9;
-    font-size: 1.75em;
+#notice {
+    /*border-right: 2px solid #fff;*/
+    font-size: 1.35em;
+}
+
+#notice-message {
+    size: 3.35em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 1.4em;
+    /*display: block;*/
+    margin: 2em;
+    color: red;
+    text-align: center;
+}
+
+#notice-message::after {
+    content: " ";
 }
 
 #next-event {
+    text-align: center;
     vertical-align: middle;
+    text-transform: uppercase;
     margin: 0 auto;
-    font-weight: 900;
-    font-size: 1.5em;
+    font-weight: 300;
+    font-size: 2.5em;
     padding: 1em;
 }
 
 #next-anchor {
-    border-left: 4px dashed #fff;
+    border-left: 2px solid #fff;
     font-size: 1.25em;
     font-weight: 100;
     padding: 1.2em;
@@ -96,22 +114,93 @@ body {
     }
 }
 
+#add-event {
+    padding: 1.25em;
+}
+
+label>h2 {
+    font-size: 1.6em;
+    font-weight: 500;
+    color: #CA1500;
+    text-transform: uppercase;
+}
+
+#display-upcoming {
+    size: 1.35em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    padding: 1.4em;
+    /*display: block;*/
+    margin-bottom: 2em;
+}
+
+#session-messages {
+    padding: 30px;
+}
+
+#session-messages h3 {
+    font-size: 2.5em;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3498DB;
+    text-transform: uppercase;
+    border: 2px solid #3498DB;
+    text-align: center;
+    padding: 3px;
+    border-radius: 4px;
+}
+
 #footer_band {
+    background: #3B445B;
     margin: 0;
-    color: #E4FFFE;
-    font-weight: 100;
+    color: lightblue;
+    font-weight: 300;
+    font-size: 1.305em;
+    text-transform: uppercase;
     clear: both;
     left: 0;
     right: 0;
     bottom: 0;
-    position: absolute;
-    background: #141010;
+    position: relative;
+    /*background: #141010;*/
     min-height: 5%;
     min-width: 100%;
     /*padding: 3rem 1.5rem 6rem;*/
 }
 
-@media only screen and (max-width: 768px) and (max-height: 1024px) {
+
+/*@media only screen and (max-width: 768px) and (max-height: 1024px) {
     /* Styles here */
-    font-size: 0.75em;
-}
+
+
+/*font-size: 0.75em;*/
+
+
+/*}*/
+
+
+/*@media screen and (device-width: 360px) {
+    body {
+        max-width: 30%;
+        font-size: .45em;
+    }
+}*/
+
+
+/*@media screen and (device-width: 780px) {
+    body {
+        max-width: 60%;
+        font-size: .65em;
+    }
+}*/
+
+
+/*
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+
+
+/*  [class*="column"] {
+        width: 100%;
+    }
+} */
