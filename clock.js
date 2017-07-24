@@ -74,6 +74,18 @@ function formatDisplay(value) {
 
 }
 
+function getNextEvent(){
+
+    if(eventList.length < 1) {
+    return "No more events in this session";
+    }
+    else {
+    
+    return eventList[0];
+    }
+    
+}
+
 // var event = {} || { "title": "First event title", "anchor": "Admin", "duration": 10 };
 const event = { "title": "Please Enter Event title and Save.", "anchor": "Hughe Dorricks", "duration": 10 };
 eventList.push(event);
