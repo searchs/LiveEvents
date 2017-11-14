@@ -1,4 +1,5 @@
 console.trace("Event Streams Running");
+//Handcrafted
 
 function onReady() {
     var clk = new createClock();
