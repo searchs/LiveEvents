@@ -75,15 +75,31 @@ function formatDisplay(value) {
 
 }
 
-function getNextEvent(){
+    var todoList = [];
+function rememberTo(task){
+    todoList.push(task);
+}
 
-    if(eventList.length < 1) {
-    return "No more events in this session";
-    }
-    else {
+function whatIsNext(){
+    todoList.shift();
+}
+
+function urgentlyRememberTo(task){
+    todoList.unshift(task);
+}
+
+
+
+function getNextEvent(){
+eventList.shift();
     
-    return eventList[0];
-    }
+//     if(eventList.length < 1) {
+//     return "No more events in this session";
+//     }
+//     else {
+    
+//     return eventList[0];
+//     }
     
 }
 
