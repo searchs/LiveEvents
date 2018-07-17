@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="app.css">
+    <title>Reddit Starts</title>
+    <script>
+        function getUtil(url, callback) {
+            let xmlhttp;
+
+            xmlhttp = new XMLHttpRequest();
+
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status === 200) {
+                    callback(xmlhttp.responseText)
+                }
+            }
+
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+        }
+
+
+        function init() {
+            getUtil("https://www.reddit.com/r/javascript.json", (redditData) => {
+                // let redditData = data;
+                // });
+                JSON.parse(redditData).data.children.forEach((info) => {
+                    console.log(info.data.title);
+
+                    var article = document.createElement('article');
+                    article.innerHTML = "<p>" + info.data.title + " by " + info.data.name + "</p>";
+
+                    document.getElementById("reddit").append(article);
+
+                });
+            });
+
+
+
+        }
+        window.onload = init;
+    </script>
+</head>
+
+<body>
+    <h2>Reddit Data</h2>
+    <section id="reddit">
+
+    </section>
+</body>
+
+</html>
