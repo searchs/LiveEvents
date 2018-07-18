@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="app.css">
     <title>Reddit Starts</title>
     <script>
@@ -27,13 +29,14 @@
         //Using Promises 
 
         function init() {
-            fetch("https://www.reddit.com/r/javascript.json")
+            fetch("https://www.reddit.com/r/reactjs.json")
                 .then((redditData) => redditData.json())
                 .then((data) => {
                     data.data.children.forEach((info) => {
-                        console.log(info.data.title);
+                        // console.log(info.data.title);
                         var article = document.createElement('article');
-                        article.innerHTML = "<p>" + info.data.title + " by " + info.data.name + "</p>";
+                        article.className = "col-md-12 col-xs-12";
+                        article.innerHTML = "<p>" + info.data.title + " by " + info.data.name +  "\n" + "<a href='" +info.data.url + "'>Link</a>" + "</p>";
 
                         document.getElementById("reddit").append(article);
                     });
@@ -41,15 +44,30 @@
         }
 
         window.onload = init;
+window.onscroll = function (ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight ) {
+        console.log("Bottom!");
+    }
+};
 
 </script>
+<style>
+    @media only screen and  (max-width: 600px){
+        body {
+            background-color: lightblue;
+        }
+    }
+</style>
+
 </head>
 
 <body>
     <h2>Reddit Data</h2>
-    <section id="reddit">
+    <section id="reddit" class="row">
 
     </section>
-</body>
-
-</html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js.map"></script>
+    </body>
+    </html>
