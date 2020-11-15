@@ -5,8 +5,10 @@ body {
 
 h1,
 h2 {
-  font-weight: 700;
-  color: #5e3b4d;
+  font-weight: 300;
+  color: #d27da8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .app-title h1 {
@@ -91,8 +93,8 @@ progress::-webkit-progress-value {
 }
 
 #eventForm {
-  background: #2e94b9;
-  padding: 10px 10px;
+  background: #000ebb;
+  padding: 10px;
   border-radius: 5px;
   text-align: left;
   color: #ffffff;

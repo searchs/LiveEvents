@@ -16,163 +16,8 @@
   <body>
     <div class="container">
       <div id="vapp">
-        <p>Boxed: {{ display}}</p>
-      </div>
-      <div>
-        <h1 class="app-title">LiveEvent</h1>
-        <div class="row">
-          <div id="view">
-            <div class="row">
-              <div id="currentSession"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-                <div id="eventTime"></div>
-              </div>
-              <div class="col-md-7">
-                <div id="blinkDateTime"></div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <ul id="upcoming"></ul>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-md-2 status">
-            <h2>Status</h2>
-          </div>
-          <div class="col-md-10" id="progressbar">
-            <progress value="8" min="0" max="10">8 out of 10</progress>
-          </div>
-        </div>
-        <div class="row">
-          <hr />
-          <div class="col-md-12 center">
-            <div class="notice">
-              <div id="countdown"></div>
-              <h2>Manage Events</h2>
-            </div>
-          </div>
-          <!-- <div class="col-md-8">
-            <div class="col-md-6">
-                <div class="form-actions text_centre ">
-                    <div class="form-group">
-                        <label for="event_list"><h2>Select Event</h2></label>
-                        <select class="form-control" id="event_list">
-                            <option >Select event</option>
-                            <option>Close ticket</option>
-                            <option selected>Create JIRA</option>
-                            <option>Re-Assign to another team</option>
-                            <option>Assign to Kraken Member</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-              <div class="col-md-6">
-                <div class="form-actions text_centre ">
-                    <div class="form-group">
-                        <label for="person_list"><h2>Select Person</h2></label>
-                        <select class="form-control" id="person_list">
-                            <option>Jack</option>
-                            <option>Ray</option>
-                            <option>Tom</option>
-                            <option>Hina</option>
-                        </select>
-                    </div>
-                </div>
-              </div>
-              </div> -->
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-md-6" id="eventForm">
-            <h2>Add Events</h2>
-            <div class="row">
-              <div class="col-md-9">
-                <div class="form-actions text_centre">
-                  <div class="form-group">
-                    <label for="event_list"> <h3>Select Event</h3></label>
-                    <select class="form-control" id="event_list">
-                      <option>Select event</option>
-                      <option>Close ticket</option>
-                      <option selected>Create JIRA</option>
-                      <option>Re-Assign to another team</option>
-                      <option>Assign to Kraken Member</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-9">
-                <div class="form-actions text_centre">
-                  <div class="form-group">
-                    <label for="person_list"> <h3>Select Person</h3></label>
-                    <select class="form-control" id="person_list">
-                      <option>Jack</option>
-                      <option>Ray</option>
-                      <option>Tom</option>
-                      <option>Hina</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-9">
-                <div class="form-actions text_centre">
-                  <div class="form-group">
-                    <label for="person_list"> <h3>Select Duration</h3></label>
-                    <select class="form-control" id="person_list">
-                      <option>5</option>
-                      <option>10</option>
-                      <option>15</option>
-                      <option>20</option>
-                      <option>25</option>
-                      <option>30</option>
-                      <option>35</option>
-                      <option>40</option>
-                      <option>45</option>
-                      <option>50</option>
-                      <option>60</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label for="event_listed"> <h2>Upcoming Event</h2></label>
-            <table class="table table-striped event_listed">
-              <thead>
-                <tr>
-                  <th>Event</th>
-                  <th>Anchor</th>
-                  <th>Duration(Minutes)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Introduction</td>
-                  <td>Jenny</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>HTML Demo</td>
-                  <td>Ray</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>Tom</td>
-                  <td>Python Advanced</td>
-                  <td>15</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <time-view />
+        <event-status />
       </div>
       <hr />
       <div class="row">
@@ -199,10 +44,172 @@
     ></script>
     <script type="text/javascript" src="assets/js/events.js"></script>
     <script>
+      Vue.component("TimeView", {
+        template: `<div>
+         <h1 class="app-title">LiveEvent</h1>
+         <div class="row">
+           <div id="view">
+             <div class="row">
+               <div id="currentSession"></div>
+             </div>
+             <div class="row">
+               <div class="col-md-5">
+                 <div id="eventTime"></div>
+               </div>
+               <div class="col-md-7">
+                 <div id="blinkDateTime"></div>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <ul id="upcoming"></ul>
+           </div>
+         </div>
+         <hr />
+         
+         <div class="row">
+           <hr />
+           <div class="col-md-12 center">
+             <div class="notice">
+               <div id="countdown"></div>
+               <h2>Manage Events</h2>
+             </div>
+           </div>
+           <!-- <div class="col-md-8">
+             <div class="col-md-6">
+                 <div class="form-actions text_centre ">
+                     <div class="form-group">
+                         <label for="event_list"><h2>Select Event</h2></label>
+                         <select class="form-control" id="event_list">
+                             <option >Select event</option>
+                             <option>Close ticket</option>
+                             <option selected>Create JIRA</option>
+                             <option>Re-Assign to another team</option>
+                             <option>Assign to Kraken Member</option>
+                         </select>
+                     </div>
+                 </div>
+             </div>
+               <div class="col-md-6">
+                 <div class="form-actions text_centre ">
+                     <div class="form-group">
+                         <label for="person_list"><h2>Select Person</h2></label>
+                         <select class="form-control" id="person_list">
+                             <option>Jack</option>
+                             <option>Ray</option>
+                             <option>Tom</option>
+                             <option>Hina</option>
+                         </select>
+                     </div>
+                 </div>
+               </div>
+               </div> -->
+         </div>
+         <hr />
+         <div class="row">
+           <div class="col-md-6" id="eventForm">
+             <h2>Add Events</h2>
+             <div class="row">
+               <div class="col-md-9">
+                 <div class="form-actions text_centre">
+                   <div class="form-group">
+                     <label for="event_list"> <h3>Select Event</h3></label>
+                     <select class="form-control" id="event_list">
+                       <option>Select event</option>
+                       <option>Close ticket</option>
+                       <option selected>Create JIRA</option>
+                       <option>Re-Assign to another team</option>
+                       <option>Assign to Kraken Member</option>
+                     </select>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-9">
+                 <div class="form-actions text_centre">
+                   <div class="form-group">
+                     <label for="person_list"> <h3>Select Person</h3></label>
+                     <select class="form-control" id="person_list">
+                       <option>Jack</option>
+                       <option>Ray</option>
+                       <option>Tom</option>
+                       <option>Hina</option>
+                     </select>
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-md-9">
+                 <div class="form-actions text_centre">
+                   <div class="form-group">
+                     <label for="person_list"> <h3>Select Duration</h3></label>
+                     <select class="form-control" id="person_list">
+                       <option>5</option>
+                       <option>10</option>
+                       <option>15</option>
+                       <option>20</option>
+                       <option>25</option>
+                       <option>30</option>
+                       <option>35</option>
+                       <option>40</option>
+                       <option>45</option>
+                       <option>50</option>
+                       <option>60</option>
+                     </select>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="col-md-6">
+             <label for="event_listed"> <h2>Upcoming Event</h2></label>
+             <table class="table table-striped event_listed">
+               <thead>
+                 <tr>
+                   <th>Event</th>
+                   <th>Anchor</th>
+                   <th>Duration(Minutes)</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td>Introduction</td>
+                   <td>Jenny</td>
+                   <td>5</td>
+                 </tr>
+                 <tr>
+                   <td>HTML Demo</td>
+                   <td>Ray</td>
+                   <td>10</td>
+                 </tr>
+                 <tr>
+                   <td>Tom</td>
+                   <td>Python Advanced</td>
+                   <td>15</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+         </div>
+       </div>`
+      });
+
+      Vue.component("EventStatus", {
+        template: `<div class="row">
+           <div class="col-md-2 status">
+             <h2>Status</h2>
+           </div>
+           <div class="col-md-10" id="progressbar">
+             <progress value="8" min="0" max="10">8 out of 10</progress>
+           </div>
+         </div>`
+      });
       const vueApp = new Vue({
         el: "#vapp",
         data: {
-          display: "redbox"
+          display: "Dashboard"
         }
       });
     </script>

@@ -1,6 +1,10 @@
 $(document).ready(function () {
   "use strict";
 
+  const logger = (msg) => {
+    console.log(msg);
+  };
+
   var eventsToday = [
     {
       eventName: "Welcome Newbies",
@@ -51,22 +55,21 @@ $(document).ready(function () {
   var populateEventsDetails = function () {
     var f = document.getElementById("currentSession");
 
-    // eventsToday.forEach(function(e) {
-
-    //     f.innerHTML = '';
-    //     f.innerHTML = e.eventPerson;
-    //     console.log('Can you see the presenter\'s name? ' + e.eventPerson);
-    //     sleep(5000);
-    //     $('.currentSession').fadeOut(500).fadeIn(500);
-    // });
+    eventsToday.forEach(function (e) {
+      f.innerHTML = "";
+      f.innerHTML = e.eventPerson;
+      logger("Can you see the presenter's name? " + e.eventPerson);
+      sleep(5000);
+      $(".currentSession").fadeOut(500).fadeIn(500);
+    });
 
     for (var i = 0; i < eventsToday.length; i++) {
-      console.log(eventsToday[i]);
+      logger(eventsToday[i]);
 
       // f.innerHTML = '';
       f.innerHTML = eventsToday[i].eventName;
-      //     console.log('Can you see the presenter\'s name? ' + e.eventPerson);
-      sleep(3000);
+      logger("Can you see the presenter's name? " + e.eventPerson);
+      sleep(1000);
     }
   };
 
