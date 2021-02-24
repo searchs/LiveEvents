@@ -12,10 +12,12 @@ function showTime() {
   // return (liveScreen.innerText = latestTime);
   liveScreen.innerText = latestTime;
   liveScreen.textContent = latestTime;
+
   setTimeout(showTime, 1000);
 }
 
 showTime();
+// form.reset();
 // setTimeout(setLatestTime, 1000);
 var eventName = document.getElementById("eventNameInput");
 var anchorName = document.getElementById("anchorNameInput");
@@ -32,36 +34,57 @@ form.addEventListener("submit", function (event) {
     var eventname = eventName.value;
     var anchor = anchorName.value;
     var duration = eventDuration.value;
+    var status = "pending";
 
     // console.log(eventname, anchor, duration);
-
-    created.innerText =
-      "Event: " +
-      eventname +
-      " Anchor: " +
-      anchor +
-      " Duration: " +
-      duration +
-      "  minutes";
-    event.preventDefault();
     generateJsonData(eventname, anchor, duration);
-    eventsList.innerText +=
-      "Event: " +
-      eventname +
-      " Anchor: " +
-      anchor +
-      " Duration: " +
-      duration +
-      " minutes \n";
+    if (events.length < 1) {
+      created.innerText = "Nothing Bro!";
+      event.preventDefault();
+    } else {
+      console.log(events);
+      created.innerText =
+        "Event: " +
+        events[0].eventName +
+        " Anchor: " +
+        events[0].anchor +
+        " Duration: " +
+        events[0].duration +
+        " Status: " +
+        status +
+        "\n";
+      event.preventDefault();
+    }
+
+    // created.innerText =
+    //   "Event: " +
+    //   eventname +
+    //   " Anchor: " +
+    //   anchor +
+    //   " Duration: " +
+    //   duration +
+    //   "  minutes";
+    // event.preventDefault();
+    // generateJsonData(eventname, anchor, duration);
+    // eventsList.innerText +=
+    //   "Event: " +
+    //   eventname +
+    //   " Anchor: " +
+    //   anchor +
+    //   " Duration: " +
+    //   duration +
+    //   " Status: " +
+    //   status +
+    //   "\n";
   }
 });
-form.reset();
 
 function generateJsonData(eventname, anchor, duration) {
   let session = new Object();
   session.eventName = eventname;
   session.anchor = anchor;
   session.duration = duration;
+  session.status = "pending";
 
   events.push(session);
   console.log(events);

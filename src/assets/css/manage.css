@@ -3,9 +3,9 @@ body {
 }
 
 body.body-container {
-  padding: 30px;
+  padding: 0;
   margin: 0;
-  background: #e9e3e6;
+  background: #f8f7ff;
 
 }
 
@@ -26,6 +26,17 @@ h2.created {
 }
 
 
+h3.next-session {
+  font-weight: 400;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: blue;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 div.main-view {
   background: white;
   border-radius: 7px;
@@ -40,6 +51,12 @@ div.create-event {
   text-align: center;
 
 }
+
+
+div.latest-created {
+  text-align: center;
+}
+
 
 
 /*   ANIMATIONS */
