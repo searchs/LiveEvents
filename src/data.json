@@ -1,0 +1,39 @@
+{
+  "data": [
+    {
+      "eventName": "Welcome Newbies",
+      "eventPerson": "Jenny",
+      "eventDuration": 10
+    },
+    {
+      "eventName": "HTML5 Session",
+      "eventPerson": "Ray",
+      "eventDuration": 15
+    },
+    {
+      "eventName": "Python Session",
+      "eventPerson": "Pete",
+      "eventDuration": 15
+    },
+    {
+      "eventName": "Advanced Python",
+      "eventPerson": "Tom",
+      "eventDuration": 15
+    },
+    {
+      "eventName": "Java Basics",
+      "eventPerson": "Hina",
+      "eventDuration": 15
+    },
+    {
+      "eventName": "NodeJS Starts",
+      "eventPerson": "Vithun",
+      "eventDuration": 15
+    },
+    {
+      "eventName": "NodeJS Advanced",
+      "eventPerson": "Roberts",
+      "eventDuration": 15
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+body {
+  height: 100vh;
+}
+
+body.body-container {
+  padding: 30px;
+  margin: 0;
+  background: #e9e3e6;
+
+}
+
+div.jumbotron {
+  height: 400px;
+  display: block;
+  background: white;
+}
+
+
+
+h2.current-event,
+h2.created {
+  font-size: 15rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+
+div.main-view {
+  background: white;
+  border-radius: 7px;
+  padding: 50px;
+
+}
+
+div.create-event {
+  margin: 0 auto;
+  padding: 30px;
+  display: block;
+  text-align: center;
+
+}
+
+
+/*   ANIMATIONS */
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
