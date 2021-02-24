@@ -25,16 +25,16 @@
       <div class="row">
         <div class="col-md-10 offset-md-1">
           <div id="main-event" class="main-view">
-            <h2 class="current-event blink">10:05:01</h2>
+            <h2 class="blink live-time" id="current-event"></h2>
           </div>
         </div>
       </div>
       <hr>
-      <div class="row">
-        <div class="col create-event">
+      <div class="row g-3">
+        <div class="create-event">
             <form id="create-form">
-              <div class="form-row">
-                <div class="col-md-3">
+              <div class="form">
+                <div class="col-sm">
                   <input
                     type="text"
                     class="form-control"
@@ -43,7 +43,7 @@
                     placeholder="Event name e.g. Announcements"
                   />
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm">
                   <input
                     type="text"
                     class="form-control"
@@ -52,7 +52,7 @@
                     placeholder="Anchor name e.g. Lifted"
                   />
                 </div>
-                <div class="col-md-3">
+                <div class="col-sm">
                   <input
                     type="number"
                     min="0"

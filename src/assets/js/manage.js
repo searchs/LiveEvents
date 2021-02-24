@@ -2,6 +2,21 @@
 
 let events = [];
 
+let liveScreen = document.getElementById("current-event");
+// var d = new Date();
+// var n = d.toLocaleTimeString();
+
+function showTime() {
+  var d = new Date();
+  var latestTime = d.toLocaleTimeString();
+  // return (liveScreen.innerText = latestTime);
+  liveScreen.innerText = latestTime;
+  liveScreen.textContent = latestTime;
+  setTimeout(showTime, 1000);
+}
+
+showTime();
+// setTimeout(setLatestTime, 1000);
 var eventName = document.getElementById("eventNameInput");
 var anchorName = document.getElementById("anchorNameInput");
 var eventDuration = document.getElementById("eventDurationInput");

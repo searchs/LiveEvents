@@ -18,9 +18,10 @@ div.jumbotron {
 
 
 h2.current-event,
+h2.live-time,
 h2.created {
   font-size: 15rem;
-  font-weight: 400;
+  font-weight: 200;
   letter-spacing: 2px;
 }
 
@@ -35,7 +36,7 @@ div.main-view {
 div.create-event {
   margin: 0 auto;
   padding: 30px;
-  display: block;
+  display: binlineock;
   text-align: center;
 
 }
