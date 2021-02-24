@@ -8,6 +8,14 @@ h3 {
   text-transform: uppercase;
 }
 
+thead {
+  text-transform: uppercase;
+  color: blue;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 1.35em;
+}
+
 body.body-container {
   padding: 0;
   margin: 0;
@@ -39,7 +47,8 @@ h2.live-time {
   color: #ffffff;
   text-align: center;
   letter-spacing: 2px;
-  background: #0d1321;
+  /* background: #0d1321; */
+  background: #2176ff;
   overflow: hidden;
   padding: 18px;
   margin: 0;
@@ -89,7 +98,7 @@ form label {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 1.5rem;
-  color: #ff0054;
+  color: #748cab;
   margin: 0;
   letter-spacing: 1px;
 }
