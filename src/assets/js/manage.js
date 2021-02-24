@@ -1,8 +1,11 @@
 // const fs = require("fs");
+let agenda = new Object();
+
+var eventDateField = document.getElementById("event-date");
 
 let events = [];
-
-let liveScreen = document.getElementById("current-event");
+var eventsListed = document.getElementById("upcoming-sessions");
+var liveScreen = document.getElementById("current-event");
 // var d = new Date();
 // var n = d.toLocaleTimeString();
 
@@ -10,9 +13,12 @@ function showTime() {
   var d = new Date();
   var latestTime = d.toLocaleTimeString();
   // return (liveScreen.innerText = latestTime);
-  liveScreen.innerText = latestTime;
-  liveScreen.textContent = latestTime;
-
+  if (events.length == 0) {
+    liveScreen.innerText = latestTime;
+    liveScreen.textContent = latestTime;
+  } else {
+    liveScreen.innerText = events[0].duration;
+  }
   setTimeout(showTime, 1000);
 }
 
@@ -22,7 +28,7 @@ showTime();
 var eventName = document.getElementById("eventNameInput");
 var anchorName = document.getElementById("anchorNameInput");
 var eventDuration = document.getElementById("eventDurationInput");
-var created = document.getElementById("created");
+var created = document.getElementById("upcoming");
 var eventsList = document.getElementById("events-listed");
 
 var form = document.getElementById("create-form");
@@ -38,44 +44,14 @@ form.addEventListener("submit", function (event) {
 
     // console.log(eventname, anchor, duration);
     generateJsonData(eventname, anchor, duration);
-    if (events.length < 1) {
-      created.innerText = "Nothing Bro!";
+    if (events.length === 0) {
+      created.innerText = "Waiting...";
       event.preventDefault();
     } else {
       console.log(events);
-      created.innerText =
-        "Event: " +
-        events[0].eventName +
-        " Anchor: " +
-        events[0].anchor +
-        " Duration: " +
-        events[0].duration +
-        " Status: " +
-        status +
-        "\n";
+      created.innerText = `${events[0].eventName} - Anchor: ${events[0].anchor} \n`;
       event.preventDefault();
     }
-
-    // created.innerText =
-    //   "Event: " +
-    //   eventname +
-    //   " Anchor: " +
-    //   anchor +
-    //   " Duration: " +
-    //   duration +
-    //   "  minutes";
-    // event.preventDefault();
-    // generateJsonData(eventname, anchor, duration);
-    // eventsList.innerText +=
-    //   "Event: " +
-    //   eventname +
-    //   " Anchor: " +
-    //   anchor +
-    //   " Duration: " +
-    //   duration +
-    //   " Status: " +
-    //   status +
-    //   "\n";
   }
 });
 

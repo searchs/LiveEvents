@@ -2,33 +2,54 @@ body {
   height: 100vh;
 }
 
+h3 {
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 body.body-container {
   padding: 0;
   margin: 0;
-  background: #f8f7ff;
+  background: #fff;
+  color: #2e294e;
 
 }
-
-div.jumbotron {
-  height: 400px;
-  display: block;
-  background: white;
-}
-
 
 
 h2.current-event,
-h2.live-time,
 h2.created {
-  font-size: 15rem;
+  font-size: 15em;
   font-weight: 200;
   letter-spacing: 2px;
 }
 
+h2#upcoming {
+  color: #748cab;
+  font-weight: 700;
+  font-size: 2.4em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2.live-time {
+  display: block;
+  font-weight: 400;
+  font-size: 20rem;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  background: #0d1321;
+  overflow: hidden;
+  padding: 18px;
+  margin: 0;
+  width: 100%;
+  height: 550px;
+}
 
 h3.next-session {
-  font-weight: 400;
-  font-size: 2rem;
+  font-weight: 500;
+  font-size: 4.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: blue;
@@ -38,16 +59,16 @@ h3.next-session {
 }
 
 div.main-view {
-  background: white;
+  width: 100%;
+  height: auto;
   border-radius: 7px;
-  padding: 50px;
 
 }
 
 div.create-event {
   margin: 0 auto;
   padding: 30px;
-  display: binlineock;
+  display: block;
   text-align: center;
 
 }
@@ -58,10 +79,24 @@ div.latest-created {
 }
 
 
+div#upcoming-sessions {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form label {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #ff0054;
+  margin: 0;
+  letter-spacing: 1px;
+}
 
 /*   ANIMATIONS */
 
-.blink {
+.eblink {
   animation: blink 1s step-start infinite;
 }
 
