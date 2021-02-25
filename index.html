@@ -27,11 +27,10 @@
       <div class="row">
         <div class="col align-items-center">
           <div id="main-event" class="main-view">
-            <h2 class="blink live-time" id="current-event"></h2>
+            <h2 class="live-time" id="current-event"></h2>
           </div>
         </div>
       </div>
-      <hr />
       <div class="row gy-2 gx-3 align-items-center p-3">
         <div class="col-md-10 offset-md-1">
           <h3 class="next-session">Next</h3>
@@ -40,30 +39,51 @@
           </div>
         </div>
       </div>
-      <hr />
       <div class="row gy-2 gx-3 align-items-center p-3">
         <div class="col">
-          <h3>Event Agenda</h3>
+          <h3 class="agenda">Event Agenda</h3>
           <div id="events-listed"></div>
         </div>
       </div>
       <div class="row gy-2 gx-3 align-items-center">
         <div class="col">
-          <!-- <form id="create-form" class="row gy-2 gx-3 align-items-center"> -->
           <form id="create-form" class="p-3 mb-3">
             <div class="row">
+              <div class="col-sm-12 col-md-3">
+                <label class="avisually-hidden" for="eventDateInput"
+                  >Date</label
+                >
+                <!-- TODO: Add Create Agenda [Reveals Create A Session ]. Schema: Sessions belong to Agenda in many to one relationship -->
+                <!-- TODO: Add a Datetime picker -->
+                <input
+                  type="text"
+                  class="form-control"
+                  name="eventDateInput"
+                  id="eventDateInput"
+                  placeholder="01/02/2021 - dd/MM/YYYY"
+                />
+              </div>
               <div class="col-sm-12 col-md-3">
                 <label class="avisually-hidden" for="eventNameInput"
                   >Name</label
                 >
-                <input
-                  type="text"
-                  class="form-control"
-                  name="eventNameInput"
-                  id="eventNameInput"
-                  placeholder="Event name e.g. Announcements"
-                />
+                <select class="form-select" id="eventNameInput">
+                  <option selected>Choose Event name...</option>
+                  <option value="Announcements">Announcements</option>
+                  <option value="Call to Worship">Call to Worship</option>
+                  <option value="Praise and Worship">Praise and Worship</option>
+                  <option value="Liberty Prayers">Liberty Prayers</option>
+                  <option value="Offering">Offering</option>
+                  <option value="Thanksgiving Offering">
+                    Thanksgiving Offering
+                  </option>
+                  <option value="The Message">The Message</option>
+                  <option value="Pastor Notices">Pastor Notices</option>
+                  <option value="Special Prayers">Special Prayers</option>
+                  <option value="Naming Ceremony">Naming Ceremony</option>
+                </select>
               </div>
+
               <div class="col-sm-12 col-md-3">
                 <label class="avisually-hidden" for="anchorNameInput"
                   >Anchor</label
@@ -100,18 +120,19 @@
             </div>
             <br />
             <div class="col-auto">
-              <button type="submit" class="btn btn-primary btn-lg">
-                Create Session
+              <button
+                type="submit"
+                class="btn btn-warning btn-lg create-button"
+              >
+                Add a Session
               </button>
             </div>
           </form>
         </div>
       </div>
-      <hr />
       <div class="row gy-2 gx-3 align-items-center">
-        <!-- <div class="row table-section"> -->
         <div class="col">
-          <table class="table table-striped" id="upcoming-sessions">
+          <table class="table" id="upcoming-sessions">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -124,26 +145,32 @@
             <tbody>
               <tr>
                 <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>Welcome Address</td>
+                <td>Blake</td>
+                <td>5</td>
                 <td><i>pending</i></td>
               </tr>
               <tr>
                 <th scope="row">2</th>
-                <td>Jacob</td>
+                <td>Development Highlights</td>
                 <td>Thornton</td>
-                <td>@fat</td>
+                <td>10</td>
                 <td><i>pending</i></td>
               </tr>
               <tr>
                 <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
+                <td>Bluuk IDE demo</td>
+                <td>Olat</td>
+                <td>15</td>
                 <td><i>pending</i></td>
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <code id="code-dump"> </code>
         </div>
       </div>
     </div>
@@ -153,11 +180,6 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(function () {
-        $("#datepicker").datetimepicker();
-      });
-    </script>
     <script src="src/assets/js/manage.js"></script>
   </body>
 </html>

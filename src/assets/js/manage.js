@@ -1,30 +1,32 @@
-// const fs = require("fs");
 let agenda = new Object();
 
 var eventDateField = document.getElementById("event-date");
 
 let events = [];
+let liveEvents = [];
 var eventsListed = document.getElementById("upcoming-sessions");
 var liveScreen = document.getElementById("current-event");
-// var d = new Date();
-// var n = d.toLocaleTimeString();
+var codeDump = document.getElementById("code-dump");
 
 function showTime() {
   var d = new Date();
   var latestTime = d.toLocaleTimeString();
-  // return (liveScreen.innerText = latestTime);
+
   if (events.length == 0) {
     liveScreen.innerText = latestTime;
     liveScreen.textContent = latestTime;
   } else {
     liveScreen.innerText = events[0].duration;
+
+    // events.pop();
+    liveEvents = events[0];
+    console.log(liveEvents);
   }
   setTimeout(showTime, 1000);
 }
 
 showTime();
-// form.reset();
-// setTimeout(setLatestTime, 1000);
+
 var eventName = document.getElementById("eventNameInput");
 var anchorName = document.getElementById("anchorNameInput");
 var eventDuration = document.getElementById("eventDurationInput");
@@ -40,15 +42,13 @@ form.addEventListener("submit", function (event) {
     var eventname = eventName.value;
     var anchor = anchorName.value;
     var duration = eventDuration.value;
-    var status = "pending";
+    // var status = "pending";
 
-    // console.log(eventname, anchor, duration);
     generateJsonData(eventname, anchor, duration);
-    if (events.length === 0) {
+    if (events.length == 0) {
       created.innerText = "Waiting...";
       event.preventDefault();
     } else {
-      console.log(events);
       created.innerText = `${events[0].eventName} - Anchor: ${events[0].anchor} \n`;
       event.preventDefault();
     }
@@ -64,10 +64,9 @@ function generateJsonData(eventname, anchor, duration) {
 
   events.push(session);
   console.log(events);
-  // return session;
 }
 
-form.reset();
+// form.reset();
 
 console.log("Done for now");
 function populateEventsList(evs) {
