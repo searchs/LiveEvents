@@ -43,6 +43,14 @@ h2.created {
   margin-bottom: 50px;
 }
 
+.main-view {
+  padding: 100px;
+  width: 100%;
+  -webkit-box-shadow: 0px 3px 17px 12px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 3px 17px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 17px 0px rgba(0, 0, 0, 0.15);
+}
+
 h2#upcoming {
   color: #faf0ca;
   font-weight: 200;
@@ -54,24 +62,21 @@ h2#upcoming {
 h2.live-time {
   display: block;
   font-weight: 300;
-  font-size: 15rem;
+  font-size: 13em;
   color: #ffffff;
-  /* text-shadow: -3px 3px 2px rgba(238, 230, 196, 0.6); */
-  text-shadow: -3px 8px 5px rgba(93, 105, 156, 0.6);
+  text-shadow: -3px 8px 5px rgba(56, 51, 27, 0.6);
+
   text-align: center;
   letter-spacing: 2px;
-  /* background: #2176ff; */
-  /* background: #555b6e; */
-  /* overflow: hidden; */
-  /* padding: 18px; */
   margin: 20px;
   width: 100%;
   height: auto;
   z-index: 100;
+
 }
 
 h3.next-session {
-  font-size: 6.5em;
+  font-size: 4.5em;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -81,6 +86,7 @@ h3.next-session {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
+
 }
 
 h3.agenda {
