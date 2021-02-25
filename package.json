@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/searchs/LiveEvents/issues"
   },
-  "homepage": "https://github.com/searchs/LiveEvents#readme"
+  "homepage": "https://github.com/searchs/LiveEvents#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
 }

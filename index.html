@@ -1,210 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Live Event Monitor</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/vuex"></script>
-    <link rel="stylesheet" type="text/css" href="assets/css/event.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/assets/css/manage.css" />
+    <link rel="stylesheet" href="src/assets/css/style.css" />
+    <title>Events: MeetAgenda</title>
   </head>
 
-  <body>
+  <body class="body-container">
+    <hr />
     <div class="container">
-      <div id="vapp">
-        <p>Boxed: {{ display}}</p>
-      </div>
-      <div>
-        <h1 class="app-title">LiveEvent</h1>
-        <div class="row">
-          <div id="view">
-            <div class="row">
-              <div id="currentSession"></div>
-            </div>
-            <div class="row">
-              <div class="col-md-5">
-                <div id="eventTime"></div>
-              </div>
-              <div class="col-md-7">
-                <div id="blinkDateTime"></div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <ul id="upcoming"></ul>
-          </div>
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-md-2 status">
-            <h2>Status</h2>
-          </div>
-          <div class="col-md-10" id="progressbar">
-            <progress value="8" min="0" max="10">8 out of 10</progress>
-          </div>
-        </div>
-        <div class="row">
-          <hr />
-          <div class="col-md-12 center">
-            <div class="notice">
-              <div id="countdown"></div>
-              <h2>Manage Events</h2>
-            </div>
-          </div>
-          <!-- <div class="col-md-8">
-            <div class="col-md-6">
-                <div class="form-actions text_centre ">
-                    <div class="form-group">
-                        <label for="event_list"><h2>Select Event</h2></label>
-                        <select class="form-control" id="event_list">
-                            <option >Select event</option>
-                            <option>Close ticket</option>
-                            <option selected>Create JIRA</option>
-                            <option>Re-Assign to another team</option>
-                            <option>Assign to Kraken Member</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-              <div class="col-md-6">
-                <div class="form-actions text_centre ">
-                    <div class="form-group">
-                        <label for="person_list"><h2>Select Person</h2></label>
-                        <select class="form-control" id="person_list">
-                            <option>Jack</option>
-                            <option>Ray</option>
-                            <option>Tom</option>
-                            <option>Hina</option>
-                        </select>
-                    </div>
-                </div>
-              </div>
-              </div> -->
-        </div>
-        <hr />
-        <div class="row">
-          <div class="col-md-6" id="eventForm">
-            <h2>Add Events</h2>
-            <div class="row">
-              <div class="col-md-9">
-                <div class="form-actions text_centre">
-                  <div class="form-group">
-                    <label for="event_list"> <h3>Select Event</h3></label>
-                    <select class="form-control" id="event_list">
-                      <option>Select event</option>
-                      <option>Close ticket</option>
-                      <option selected>Create JIRA</option>
-                      <option>Re-Assign to another team</option>
-                      <option>Assign to Kraken Member</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-9">
-                <div class="form-actions text_centre">
-                  <div class="form-group">
-                    <label for="person_list"> <h3>Select Person</h3></label>
-                    <select class="form-control" id="person_list">
-                      <option>Jack</option>
-                      <option>Ray</option>
-                      <option>Tom</option>
-                      <option>Hina</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-9">
-                <div class="form-actions text_centre">
-                  <div class="form-group">
-                    <label for="person_list"> <h3>Select Duration</h3></label>
-                    <select class="form-control" id="person_list">
-                      <option>5</option>
-                      <option>10</option>
-                      <option>15</option>
-                      <option>20</option>
-                      <option>25</option>
-                      <option>30</option>
-                      <option>35</option>
-                      <option>40</option>
-                      <option>45</option>
-                      <option>50</option>
-                      <option>60</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <label for="event_listed"> <h2>Upcoming Event</h2></label>
-            <table class="table table-striped event_listed">
-              <thead>
-                <tr>
-                  <th>Event</th>
-                  <th>Anchor</th>
-                  <th>Duration(Minutes)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Introduction</td>
-                  <td>Jenny</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <td>HTML Demo</td>
-                  <td>Ray</td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>Tom</td>
-                  <td>Python Advanced</td>
-                  <td>15</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <hr />
       <div class="row">
-        <footer class="footer">
-          LiveEvent Manager &copy;
-          <script>
-            document.getElementById(
-              "currentYear"
-            ).innerText = Date().getFullYear();
-          </script>
-          <span id="currentYear"></span>
-        </footer>
+        <div class="col align-items-center">
+          <div id="main-event" class="main-view">
+            <h2 class="live-time" id="current-event"></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row gy-2 gx-3 align-items-center p-3">
+        <div class="col-md-10 offset-md-1">
+          <h3 class="next-session">Next</h3>
+          <div class="latest-created">
+            <h2 id="upcoming"></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row gy-2 gx-3 align-items-center p-3">
+        <div class="col">
+          <h3 class="agenda">Event Agenda</h3>
+          <div id="events-listed"></div>
+        </div>
+      </div>
+      <div class="row gy-2 gx-3 align-items-center">
+        <div class="col">
+          <form id="create-form" class="p-3 mb-3">
+            <div class="row">
+              <div class="col-sm-12 col-md-3">
+                <label class="avisually-hidden" for="eventDateInput"
+                  >Date</label
+                >
+                <!-- TODO: Add Create Agenda [Reveals Create A Session ]. Schema: Sessions belong to Agenda in many to one relationship -->
+                <!-- TODO: Add a Datetime picker -->
+                <input
+                  type="text"
+                  class="form-control"
+                  name="eventDateInput"
+                  id="eventDateInput"
+                  placeholder="01/02/2021 - dd/MM/YYYY"
+                />
+              </div>
+              <div class="col-sm-12 col-md-3">
+                <label class="avisually-hidden" for="eventNameInput"
+                  >Name</label
+                >
+                <select class="form-select" id="eventNameInput">
+                  <option selected>Choose Event name...</option>
+                  <option value="Announcements">Announcements</option>
+                  <option value="Call to Worship">Call to Worship</option>
+                  <option value="Praise and Worship">Praise and Worship</option>
+                  <option value="Liberty Prayers">Liberty Prayers</option>
+                  <option value="Offering">Offering</option>
+                  <option value="Thanksgiving Offering">
+                    Thanksgiving Offering
+                  </option>
+                  <option value="The Message">The Message</option>
+                  <option value="Pastor Notices">Pastor Notices</option>
+                  <option value="Special Prayers">Special Prayers</option>
+                  <option value="Naming Ceremony">Naming Ceremony</option>
+                </select>
+              </div>
+
+              <div class="col-sm-12 col-md-3">
+                <label class="avisually-hidden" for="anchorNameInput"
+                  >Anchor</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="anchorNameInput"
+                  id="anchorNameInput"
+                  placeholder="Anchor name e.g. Lifted"
+                />
+              </div>
+              <div class="col-sm-12 col-md-3">
+                <label class="avisually-hidden" for="eventDurationInput"
+                  >Duration</label
+                >
+                <select class="form-select" id="eventDurationInput">
+                  <option selected>Choose Duration...</option>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="30">30</option>
+                  <option value="35">35</option>
+                  <option value="40">40</option>
+                  <option value="45">45</option>
+                  <option value="50">50</option>
+                  <option value="55">55</option>
+                  <option value="60">60</option>
+                </select>
+              </div>
+              <div class="col"></div>
+            </div>
+            <br />
+            <div class="col-auto">
+              <button
+                type="submit"
+                class="btn btn-warning btn-lg create-button"
+              >
+                Add a Session
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="row gy-2 gx-3 align-items-center">
+        <div class="col">
+          <table class="table" id="upcoming-sessions">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Event</th>
+                <th scope="col">Anchor</th>
+                <th scope="col">Duration</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Welcome Address</td>
+                <td>Blake</td>
+                <td>5</td>
+                <td><i>pending</i></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Development Highlights</td>
+                <td>Thornton</td>
+                <td>10</td>
+                <td><i>pending</i></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Bluuk IDE demo</td>
+                <td>Olat</td>
+                <td>15</td>
+                <td><i>pending</i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <code id="code-dump"> </code>
+        </div>
       </div>
     </div>
+
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"
-    ></script>
-    <script type="text/javascript" src="assets/js/events.js"></script>
-    <script>
-      const vueApp = new Vue({
-        el: "#vapp",
-        data: {
-          display: "redbox"
-        }
-      });
-    </script>
+    <script src="src/assets/js/manage.js"></script>
   </body>
 </html>

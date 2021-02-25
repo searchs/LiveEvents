@@ -1,0 +1,143 @@
+body {
+  height: 100%;
+  background: rgb(13, 8, 98);
+  background: radial-gradient(circle, rgb(18, 14, 97) 13%, #0a0d61 79%, rgb(1, 24, 104) 90%);
+
+}
+
+h3 {
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+table,
+tr {
+  color: white;
+}
+
+thead {
+  text-transform: uppercase;
+  color: blue;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 1.35em;
+}
+
+body.body-container {
+  padding: 0;
+  margin: 0;
+}
+
+
+h2.current-event,
+h2.created {
+  font-size: 15em;
+  font-weight: 200;
+  letter-spacing: 2px;
+}
+
+#upcoming {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h2#upcoming {
+  color: #faf0ca;
+  font-weight: 500;
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h2.live-time {
+  display: block;
+  font-weight: 300;
+  font-size: 22rem;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 2px;
+  /* background: #2176ff; */
+  /* background: #555b6e; */
+  /* overflow: hidden; */
+  /* padding: 18px; */
+  margin: 0;
+  width: 100%;
+  height: 550px;
+  z-index: 100;
+}
+
+h3.next-session {
+  font-size: 6.5em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ffdc5e;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h3.agenda {
+  font-weight: 500;
+  font-size: 4.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #faf0ca;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+div.main-view {
+  width: 100%;
+  height: auto;
+  border-radius: 7px;
+
+}
+
+div.create-event {
+  margin: 0 auto;
+  padding: 30px;
+  display: block;
+  text-align: center;
+
+}
+
+button.create-button {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+div.latest-created {
+  text-align: center;
+}
+
+
+div#upcoming-sessions {
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form label {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #b8bedd;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/*   ANIMATIONS */
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
