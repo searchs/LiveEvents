@@ -62,13 +62,13 @@ h2#upcoming {
 h2.live-time {
   display: block;
   font-weight: 300;
-  font-size: 15em;
+  font-size: 20em;
   color: #ffffff;
   text-shadow: -3px 8px 5px rgba(56, 51, 27, 0.6);
 
   text-align: center;
   letter-spacing: 2px;
-  margin: 20px;
+  margin: 10px;
   width: 100%;
   height: auto;
   z-index: 100;

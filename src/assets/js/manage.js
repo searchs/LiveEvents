@@ -9,20 +9,33 @@ let events = [];
 let liveEvents = [];
 var eventsListed = document.getElementById("upcoming-sessions");
 var liveScreen = document.getElementById("current-event");
-var codeDump = document.getElementById("code-dump");
 
 function showTime() {
   var d = new Date();
   var latestTime = d.toLocaleTimeString();
-
   if (events.length == 0) {
     liveScreen.innerText = latestTime;
     liveScreen.textContent = latestTime;
   } else {
     liveScreen.innerText = events[0].duration + ":00";
+    liveScreen.textContent = events[0].duration + ":00";
     liveEvents = events[0];
     console.log(liveEvents);
   }
+  // startTimer();
+  var presentTime = liveScreen.innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond(timeArray[1] - 1);
+  if (s == 59 && m > 0) {
+    m = m - 1;
+  }
+  //if(m<0){alert('timer completed')}
+
+  // document.getElementById("timer").innerHTML = m + ":" + s;
+  liveScreen.innerHTML = m + ":" + s;
+  console.log(m);
+
   setTimeout(showTime, 1000);
   startTimer();
 }
@@ -51,10 +64,10 @@ form.addEventListener("submit", function (event) {
 
     generateJsonData(eventname, anchor, duration, eventdate);
     if (events.length == 0) {
-      created.innerText = "Waiting...";
+      created.innerText = latestTime;
       event.preventDefault();
     } else {
-      created.innerText = `${events[0].eventName} - : ${events[0].anchor}\n`;
+      created.innerText = `${events[0].eventName} - ${events[0].anchor}\n`;
       event.preventDefault();
     }
   }
