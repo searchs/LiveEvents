@@ -19,11 +19,12 @@ function showTime() {
     liveScreen.innerText = latestTime;
     liveScreen.textContent = latestTime;
   } else {
-    liveScreen.innerText = events[0].duration;
+    liveScreen.innerText = events[0].duration + ":00";
     liveEvents = events[0];
     console.log(liveEvents);
   }
   setTimeout(showTime, 1000);
+  startTimer();
 }
 
 showTime();
@@ -53,12 +54,40 @@ form.addEventListener("submit", function (event) {
       created.innerText = "Waiting...";
       event.preventDefault();
     } else {
-      created.innerText = `${events[0].eventName} - Anchor: ${events[0].anchor}  ${events[0].eventdate}\n`;
+      created.innerText = `${events[0].eventName} - : ${events[0].anchor}\n`;
       event.preventDefault();
     }
   }
 });
 
+// document.getElementById("timer").innerHTML = 003 + ":" + 20;
+
+function startTimer() {
+  // var presentTime = document.getElementById("timer").innerHTML;
+  var presentTime = liveScreen.innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond(timeArray[1] - 1);
+  if (s == 59 && m > 0) {
+    m = m - 1;
+  }
+  //if(m<0){alert('timer completed')}
+
+  // document.getElementById("timer").innerHTML = m + ":" + s;
+  liveScreen.innerHTML = m + ":" + s;
+  console.log(m);
+  setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {
+    sec = "0" + sec;
+  } // add zero in front of numbers < 10
+  if (sec < 0) {
+    sec = "59";
+  }
+  return sec;
+}
 const countdown = (countTime) => {
   do {
     var timeInMilli = countTime * 1000 * 60;
